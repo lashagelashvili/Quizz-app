@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetApiService } from './get-api.service';
+import { ApiService } from './api/api.service';
 
 
 @Component({
@@ -10,13 +10,11 @@ import { GetApiService } from './get-api.service';
 export class AppComponent {
   title = 'quiz-app';
 
-  constructor(private api: GetApiService) {
+  constructor(private api: ApiService) {
 
   }
 
   ngOnInit() {
-    this.api.apiCall().subscribe((data) => {
-      console.warn('get api data', data);
-    })
+    
   }
 }
