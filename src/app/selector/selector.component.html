@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="select-category">
+        <h4>Select Category</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select>
+            <mat-option 
+                *ngFor="let category of category" 
+                [value]="category.value">
+            {{category.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="select-difficulty">
+        <h4>Select Difficulty</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Difficulty</mat-label>
+          <mat-select>
+            <mat-option 
+                *ngFor="let difficulty of difficulty" 
+                [value]="difficulty.value">
+            {{difficulty.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <section>
+        <div class="example-button-row">
+            <button type="submit" mat-raised-button color="primary">Start Quiz</button>
+        </div>
+    </section>
+</div>

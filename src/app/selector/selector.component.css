@@ -1,0 +1,9 @@
+.container {
+    margin: auto auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 250px;
+    flex-flow: row wrap;
+    width: 25%;
+}

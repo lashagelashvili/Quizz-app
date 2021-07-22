@@ -1,0 +1,14 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+ul.answer li:hover{
+    background-color: #26a69a;
+    color: #eafaf9;
+    cursor: pointer;
+}
+
+ul li.selected{
+    background-color: #26a69a !important;
+    color: #eafaf9 !important;
+}
