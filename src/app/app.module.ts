@@ -16,7 +16,6 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { appRoutes } from './routes';
 import { NavbarComponent } from './navbar/navbar.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { ResultComponent } from './result/result.component';
@@ -33,7 +32,6 @@ import { SelectorComponent } from './selector/selector.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatSelectModule,
     BrowserAnimationsModule,
