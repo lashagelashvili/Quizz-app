@@ -1,3 +1,8 @@
-<app-navbar></app-navbar>
-
-<p>result works!</p>
+<mat-card class="final-score">
+    <div>
+        Your final score is: {{message}}
+    </div>
+    <div class="example-button-row">
+        <button type="submit" mat-raised-button color="primary" [routerLink]="['/select']">Restart quiz</button>
+    </div>
+</mat-card>

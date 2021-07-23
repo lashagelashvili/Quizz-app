@@ -1,18 +1,27 @@
-.mat-radio-button ~ .mat-radio-button {
-    margin-left: 16px;
-}
-
-ul.answer li:hover{
-    background-color: #26a69a;
-    color: #eafaf9;
-    cursor: pointer;
-}
-
-ul li.selected{
-    background-color: #26a69a !important;
-    color: #eafaf9 !important;
+.main-card {
+    width: 60%;
+    margin: auto;
+    margin-top: 60px;
 }
 
 .collection-item {
     height: 70px;
+    margin-top: 20px;
+}
+
+.collection-answer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+
+mat-card-header {
+    font-size: 25px;
+    padding-left: 7px;
+}
+
+.collection-item:hover{
+    opacity: 0.7;
+    cursor: pointer;
 }
