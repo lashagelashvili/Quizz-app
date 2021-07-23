@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { Question } from '../api/api';
 import { Router } from '@angular/router';
+import { StateService } from '../services/state.service';
 
 
 @Component({
@@ -19,16 +20,22 @@ export class QuizComponent implements OnInit {
 
   public answers: string[] = [];
 
+  currentCategory: string;
+  currentDifficulty: string;
+
   constructor(
     private api: ApiService,
     private router: Router,
+    private message: StateService,
+    private sharedCategory: StateService,
+    private sharedDifficulty: StateService,
   ) { }
 
   ngOnInit(): void {
-    this.api.getQuestions({ category: '21', numberOfQuestions: '10', difficulty: 'easy', type: 'multiple' }).subscribe((questions) => {
+    this.currentCategory = this.sharedCategory.returnCategoryInfo();
+    this.currentDifficulty = this.sharedDifficulty.returnDifficultyInfo();
+    this.api.getQuestions({ category: this.currentCategory, numberOfQuestions: '10', difficulty: this.currentDifficulty, type: 'multiple' }).subscribe((questions) => {
       this.questions = questions;
-      // console.log(questions);
-      // console.log(this.answers)
       this.updateAnswers()
     })
   };
@@ -52,6 +59,7 @@ export class QuizComponent implements OnInit {
     }
     if (this.currentQuestionIndex === this.questions.length - 1) {
       this.router.navigateByUrl('result')
+      this.message.setMessage(this.score)
       return;
     }
 
