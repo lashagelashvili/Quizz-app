@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-result',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+  message: number;
 
-  constructor() { }
+  constructor(private shared: StateService) { }
 
   ngOnInit(): void {
+    this.message = this.shared.getMessage()
   }
-
 }
