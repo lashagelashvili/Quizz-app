@@ -1,6 +1,6 @@
 # QuizApp
 
-demo https://lashagelashvili.github.io/Quizz-app/select
+demo https://lashagelashvili.github.io/Quizz-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
