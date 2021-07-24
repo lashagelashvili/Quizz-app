@@ -26,14 +26,16 @@ export class QuizComponent implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
-    private message: StateService,
-    private sharedCategory: StateService,
-    private sharedDifficulty: StateService,
+    private stateService: StateService,
   ) { }
 
   ngOnInit(): void {
-    this.currentCategory = this.sharedCategory.returnCategoryInfo();
-    this.currentDifficulty = this.sharedDifficulty.returnDifficultyInfo();
+    this.currentCategory = this.stateService.returnCategoryInfo();
+    this.currentDifficulty = this.stateService.returnDifficultyInfo();
+    if (this.currentCategory === undefined || this.currentDifficulty === undefined) {
+      this.router.navigateByUrl('select');
+      return;
+    }
     this.api.getQuestions({ category: this.currentCategory, numberOfQuestions: '10', difficulty: this.currentDifficulty, type: 'multiple' }).subscribe((questions) => {
       this.questions = questions;
       this.updateAnswers()
@@ -59,7 +61,7 @@ export class QuizComponent implements OnInit {
     }
     if (this.currentQuestionIndex === this.questions.length - 1) {
       this.router.navigateByUrl('result')
-      this.message.setMessage(this.score)
+      this.stateService.setMessage(this.score)
       return;
     }
 

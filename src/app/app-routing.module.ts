@@ -9,7 +9,8 @@ const routes : Routes = [
   {path: 'select', component: SelectorComponent},
   {path: 'quiz', component: QuizComponent},
   {path: 'result', component: ResultComponent},
-  {path: '', redirectTo:'/select', pathMatch:'full'}
+  {path: '', redirectTo:'/select', pathMatch:'full'},
+  {path: '**', redirectTo: '/select'}
 ];
 
 @NgModule({

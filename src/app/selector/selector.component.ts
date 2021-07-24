@@ -54,8 +54,7 @@ export class SelectorComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private currentCategory: StateService,
-    private currentDifficulty: StateService
+    private stateService: StateService,
   ) { }
 
   selectedDifficulty: string = 'easy';
@@ -66,8 +65,8 @@ export class SelectorComponent implements OnInit {
   }
 
   sendInfo() {
-    this.currentCategory.sendCategoryInfo(this.selectedCategory);
-    this.currentDifficulty.sendDifficultyInfo(this.selectedDifficulty);
+    this.stateService.sendCategoryInfo(this.selectedCategory);
+    this.stateService.sendDifficultyInfo(this.selectedDifficulty);
     this.router.navigateByUrl('quiz');
   }
 }
